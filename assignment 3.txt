@@ -1,0 +1,146 @@
+11.Write a function calculate that takes three arugments from the user, say num1 , num2, and operation(1==add, 2==subtract, 
+3==multiply, 4==divide ).Don`t use switch statement or if else statements
+1.add,
+2.subtract,
+3.multiply,
+4.divide 
+write the calc function for all the operations
+
+
+function calculate(){
+    var num1=parseInt(prompt('Enter 1st number'));
+    var num2=parseInt(prompt('Enter 2nd Number'));
+    var op=parseInt(prompt('Enter operation to be performed 1=add, 2=sub,3=multiply,4=divide'));
+    function add(){
+        return num1+num2;
+    }
+    function sub(){
+        return num1-num2;
+    }
+    function multiply(){
+        return num1*num2;
+    }
+    function divide(){
+        return num1/num2
+    }
+    var obj={1:add(),2:sub(),3:multiply(),4:divide()};
+    return obj[op];
+}
+
+undefined
+calculate()
+6
+
+
+
+
+12 . Create a function Named Triangle which takes 3 parameters, say A, B and C denoting the 3 sides of a triangle.
+Use Callback function, create a method to check if the triangle is Equilateral or not.
+Output:
+"true" if the triangle is equilateral and "false" if its not.
+
+
+
+function checkequilateral(a,b,c){
+   return (a==b && b==c)?true:false;
+}
+function triangle(a,b,c,fn){
+    if(fn(a,b,c)){
+        console.log('True');
+    }
+    else{
+        console.log('false');
+    }
+}
+undefined
+triangle(3,3,3,checkequilateral);
+VM100:6 True
+undefined
+
+
+13.Given two strings, return true if they are anagrams of one another
+For example: Mary is an anagram of Army
+
+
+function checkAnagram(str1,str2){
+    for(var i=0;i<str1.length;i++){
+        var ch=str1.charAt(i);var count=0;
+        for(var j=0;j<str2.length;j++){
+            if(ch===str2[i]){
+                count++;
+            }
+        }
+       
+    }
+     if(count===str1.length){
+            console.log('It is Anagram');
+        }
+        else{
+            console.log('It is not a Anagram');
+        }
+}
+
+undefined
+checkAnagram('Mary','Army');
+VM137:12 It is Anagram
+undefined
+
+
+
+14.Compute HRA, DA, TA, GS, NS.
+HRA is 30% of Basic Salary.
+DA is 10% of Basic Salary.
+TA is 20% of Basic Salary.
+GS = Basic Salary + HRA + DA + TA;
+TAX DEDUCTION is 10% of GS.
+NS = GS - TAX DEDUCTION.
+NOte : Use Basic Salary in Lexical Scope 
+Print salary slip of the employee.
+
+
+
+function employee(id,name,basic_salary){
+    var hra,da,ta;
+    function compute(){
+         hra=0.3*basic_salary;
+         da=0.10*basic_salary;
+         ta=0.20*basic_salary;
+        var gs=basic_salary+hra+da+ta;
+    var tax=0.10*gs;
+    var net_salary=gs-tax;
+    console.log(`id: ${id} name:${name} net_salary:${net_salary}`);
+    }
+    
+    return {compute};
+}
+undefined
+employee(1001,'Anjali',20000).compute();
+VM170:10 id: 1001 name:Anjali net_salary:28800
+undefined
+
+
+
+15. Write a function to find the maximum and minimum elements in an array.
+arr = [10,3,15,-1,9,6]
+
+output = maxno. : 15
+			minno. : -1
+function minMax(){
+var arr = [10,3,15,-1,9,6];
+    var min=0;var max=0;
+    for(var i=0;i<arr.length;i++){
+        if(arr[i]>max){
+            max=arr[i];
+        }
+        if(arr[i]<min){
+            min=arr[i];
+        }
+    }
+    console.log('MAX ',max);
+    console.log("MIN ",min);
+}
+undefined
+minMax();
+VM200:12 MAX  15
+VM200:13 MIN  -1
+undefined
